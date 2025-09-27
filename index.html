@@ -63,5 +63,63 @@
       <a class="btn-share" href="https://www.facebook.com/sharer/sharer.php?u=https://你的網頁網址" target="_blank">分享名片</a>
     </div>
   </div>
+
+
+  <!-- 在 .buttons 裡新增按鈕 -->
+<a id="btn-line-share" class="btn-share" href="#" role="button">透過 LINE 分享給好友</a>
+
+<script>
+  document.getElementById('btn-line-share').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // 你想分享的文字或連結（可自訂）
+    const pageUrl = window.location.href; // 當前頁面網址
+    const title = document.querySelector('.card h1')?.innerText || '電子名片';
+    const text = `${title} 的電子名片： ${pageUrl}`;
+
+    // 1) 若瀏覽器支援 Web Share API（行動裝置常見），優先使用它
+    if (navigator.share) {
+      navigator.share({
+        title: title,
+        text: text,
+        url: pageUrl
+      }).catch((err) => {
+        // 使用者取消或錯誤，改用 LINE fallback
+        openLineFallback(text, pageUrl);
+      });
+      return;
+    }
+
+    // 2) 嘗試使用 LINE 的 app 協議（line://），此為行動裝置上的直接分享（App 需已安裝）
+    // 使用 line://msg/text/?textEncoded 會直接帶入分享文字到 LINE 聊天視窗
+    const textEncoded = encodeURIComponent(text);
+    const lineAppUrl = `line://msg/text/${textEncoded}`; // 或 `line://msg/text/?${textEncoded}`，多數手機會辨識
+
+    // 3) 檢查是否為行動裝置：若是則先嘗試開啟 app 協議（window.location）
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      // 嘗試打開 LINE app（若未安裝會失敗 — 所以加一個短延遲後 fallback）
+      const fallbackTimeout = setTimeout(() => {
+        openLineFallback(text, pageUrl);
+      }, 800);
+
+      // 嘗試導向 line 協議
+      window.location = lineAppUrl;
+
+      // 若成功跳轉到 app，這個頁面會被暫停，若沒則會在 timeout 後 fallback
+      return;
+    }
+
+    // 4) 桌面或其他情況，直接用 LINE 的 web 分享頁面
+    openLineFallback(text, pageUrl);
+
+    // fallback function：呼叫 LINE 網頁分享
+    function openLineFallback(message, url) {
+      const shareUrl = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url);
+      window.open(shareUrl, '_blank');
+    }
+  });
+</script>
+
 </body>
 </html>
