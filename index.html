@@ -1,117 +1,184 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>電子名片</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      max-width: 320px;
-      width: 100%;
-    }
-    .card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
-    .card h1 {
-      font-size: 20px;
-      margin: 0;
-    }
-    .card p {
-      color: #666;
-      margin: 5px 0;
-    }
-    .buttons a {
-      display: inline-block;
-      margin: 10px 5px 0;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 14px;
-    }
-    .btn-line { background: #06C755; }  /* LINE 綠 */
-    .btn-share { background: #007bff; } /* 藍色 */
-    .btn-direct { background: #ff9500; } /* 橘色 */
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>電子名片滑動</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* 滑動區塊 */
+  .section {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* 手機滑動順暢 */
+    width: 100%;
+  }
+
+  /* 自訂滑桿 */
+  .section::-webkit-scrollbar {
+    height: 8px; /* 滑桿高度 */
+  }
+  .section::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+  .section::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  .section::-webkit-scrollbar-thumb:hover {
+    background: #999;
+  }
+
+  .section-item {
+    flex: 0 0 280px;  /* 每格固定寬度 */
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    scroll-snap-align: start;
+    padding-bottom: 10px;
+  }
+
+  .section-item img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+.qrcode-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  flex-shrink: 0; /* 不被壓縮 */
+}
+.qrcode {
+  width: 100px;
+  height: auto;
+}
+
+  .section-item h2 {
+    font-size: 16px;
+    margin: 8px 0 4px;
+  }
+
+  .section-item p {
+    font-size: 13px;
+    color: #444;
+    padding: 0 8px 8px;
+    margin: 0;
+  }
+
+  .card-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .card-buttons a {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .btn-line { background: #06C755; }
+  .btn-direct { background: #ff9500; }
+  .btn-share { background: #007bff; }
+
+  @media screen and (max-width: 768px) {
+    .section-item { flex: 0 0 220px; }
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <img src="1.jpg" alt="大頭照">
-    <h1>陳椿茂</h1>
-    <p>博酒萊洋酒</p>
-    <p>📞 0986-185599</p>
-    <p>🏠 彰化縣員林市浮圳路二段25號 (全台服務)</p>
 
-    <div class="buttons">
-      <!-- 加好友 -->
-      <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加 LINE 好友</a>
+<div class="section">
+  <!-- 名片介紹 -->
+  <div class="section-item">
+    <img src="1.jpg" alt="名片照片">
+   
+    <h2>博酒萊洋酒</h2>
+    <p>陳椿茂 總經理<br>📞 0986-185599<br>🏠 彰化縣員林市浮圳路二段25號 <br> 服務0距離 全台服務</p>
+    <div class="card-buttons">
+      <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
+      <a class="btn-direct" href="line://msg/text/這是我的電子名片%0A加我好友👉 https://line.me/ti/p/~heysong0301" target="_blank">分享好友</a>
+      <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+<div class="qrcode-container">
+  <img class="qrcode" src="5.png" alt="qrcode照片">
+</div>
 
-      <!-- 分享給好友（直接跳 LINE 好友選單） -->
-      <a class="btn-direct" 
-         href="line://msg/text/這是我的電子名片%0A加我好友👉 https://line.me/ti/p/~heysong0301" 
-         target="_blank">
-        分享給 LINE 好友
-      </a>
-      <!-- JS 版 LINE 分享 -->
-      <a id="btn-line-share" class="btn-share" href="#" role="button">分享名片網址</a>
     </div>
   </div>
 
+  <!-- 介紹1 -->
+  <div class="section-item">
+    <img src="2.png" alt="服務一圖片">
+    <h2>酒類銷售</h2>
+    <p>專售世界各級威士忌、葡萄酒＆級數酒、香檳＆氣泡酒、日本清酒、高粱酒、進口啤酒等酒類，無酒精啤酒葡萄酒＆軟性飲料，另售雪茄、香菸。</p>
+    <div class="card-buttons">
+      <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+    </div>
+  </div>
+
+  <!-- 介紹2 -->
+  <div class="section-item">
+    <img src="3.png" alt="產品一圖片">
+    <h2>年節送禮＆婚宴用酒</h2>
+    <p>春酒尾牙、婚禮喜宴、社團聚會用酒，專業服務配送到府。<br>
+  年節慶祝、升官入厝祝賀，多樣化禮盒提供您選擇。提供多樣化選擇。<br>配合上市櫃公司 中小型企業客製化送禮需求。</p>
+    <div class="card-buttons">
+      <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+    </div>
+  </div>
+
+  <!-- 介紹3 -->
+  <div class="section-item">
+    <img src="4.png" alt="活動一圖片">
+    <h2>品酒會 & 品牌活動</h2>
+    <p>傳遞品酒文化推廣者<br>
+    定期舉辦品酒會、品牌講座與酒文化活動，邀請大家交流、體驗與成長。<br> 報名活動～請洽詢博酒萊洋酒</p>
+    <div class="card-buttons">
+      <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+    </div>
+  </div>
+</div>
+
 <script>
-  document.getElementById('btn-line-share').addEventListener('click', function(e) {
+  document.getElementById('btn-line-share')?.addEventListener('click', function(e) {
     e.preventDefault();
-
-    const pageUrl = window.location.href; // 當前頁面網址
-    const title = document.querySelector('.card h1')?.innerText || '電子名片';
+    const pageUrl = window.location.href;
+    const title = document.querySelector('.section-item h2')?.innerText || '電子名片';
     const text = `${title} 的電子名片： ${pageUrl}`;
-
     if (navigator.share) {
-      navigator.share({
-        title: title,
-        text: text,
-        url: pageUrl
-      }).catch(() => {
-        openLineFallback(text, pageUrl);
-      });
+      navigator.share({ title, text, url: pageUrl }).catch(() => openLineFallback(text, pageUrl));
       return;
     }
-
-    const textEncoded = encodeURIComponent(text);
-    const lineAppUrl = `line://msg/text/${textEncoded}`;
-    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      setTimeout(() => {
-        openLineFallback(text, pageUrl);
-      }, 800);
-      window.location = lineAppUrl;
-      return;
-    }
-
-    openLineFallback(text, pageUrl);
-
     function openLineFallback(message, url) {
       const shareUrl = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url);
       window.open(shareUrl, '_blank');
     }
+    openLineFallback(text, pageUrl);
   });
 </script>
+
 </body>
 </html>
