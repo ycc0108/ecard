@@ -52,13 +52,25 @@
     padding-bottom: 10px;
   }
 
-  /* 共用圖片樣式（上方封面用） */
+  /* 共用圖片樣式（一般卡片上方圖片） */
   .section-item img {
     width: 100%;
     height: 140px;
     object-fit: cover;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+  }
+
+  /* ✅ 封面個人照專屬樣式，不受限制 */
+  .section-item img.profile-pic {
+    width: auto;
+    height: auto;
+    max-width: 100%;   /* 保證不會超過卡片寬度 */
+    max-height: 100%;  /* 保證不會超過卡片高度 */
+    object-fit: contain;
+    border-radius: 0;
+    margin: 0 auto;
+    display: block;
   }
 
   /* 專門給 QRcode 用的 */
@@ -129,14 +141,13 @@
 <div class="section">
   <!-- 名片介紹 -->
   <div class="section-item">
-    <img src="1.JPG" alt="名片照片">
+    <img src="1.JPG" alt="名片照片" class="profile-pic">
     <h2>陳椿茂</h2>
     <h2>Tam Chen</h2>
-  <p>酒類專賣店 總經理<br>黑松經銷商 經理 <br>奧瑞岡辯論訓練講師＆評審<br>品酒會講師</p>  
+    <p>酒類專賣店 總經理<br>黑松經銷商 經理 <br>奧瑞岡辯論訓練講師＆評審<br>品酒會講師</p>  
 
-    <p>📞 09-86185599<br>✉️heysong0301@gmail.com<br>Line:heysong0301 </p>
+    <p>📞 09-86185599<br>✉️ heysong0301@gmail.com<br>Line: heysong0301 </p>
 
-    
     <div class="card-buttons">
       <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
       <a class="btn-direct" href="line://msg/text/這是我的電子名片%0A加我好友👉 https://line.me/ti/p/~heysong0301" target="_blank">分享好友</a>
@@ -153,7 +164,7 @@
   <div class="section-item">
     <img src="2.png" alt="服務一圖片">
     <h2>博酒萊洋酒 總經理</h2>
-    <p>酒類專賣店 <br>🏠彰化縣員林市浮圳路二段25號 <br> 服務0距離 全台服務
+    <p>酒類專賣店 <br>🏠 彰化縣員林市浮圳路二段25號 <br> 服務0距離 全台服務</p>
     <p>專售世界各級威士忌、葡萄酒＆級數酒、香檳＆氣泡酒、日本清酒、高粱酒、進口啤酒等酒類，無酒精啤酒葡萄酒＆軟性飲料，另售雪茄、香菸。</p>
     <div class="card-buttons">
       <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
@@ -162,12 +173,10 @@
 
   <!-- 介紹2 -->
   <div class="section-item">
-    <img src="IMG6363.JPG" alt="產品一圖片">
-       <img src="IMG6362.jpg" alt="產品一圖片">
+    <img src="IMG＿6363.JPG" alt="產品一圖片">
+    <img src="IMG＿6362.jpg" alt="產品一圖片">
     <h2>奧瑞岡辯論 評審 & 訓練講師</h2>
-    <p>擔任比賽評審<br>
-培養青年思辨與表達能力<br>
-促進跨文化交流</p>
+    <p>擔任比賽評審<br>培養青年思辨與表達能力<br>促進跨文化交流</p>
     <div class="card-buttons">
       <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
     </div>
@@ -175,24 +184,25 @@
 
   <!-- 介紹3 -->
   <div class="section-item">
-    <img src="IMG6364.JPG" alt="活動一圖片">
+    <img src="IMG＿6364.JPG" alt="活動一圖片">
     <h2>品酒會 講師</h2>
     <p>傳遞品酒文化推廣者<br>
     主持威士忌、葡萄酒、烈酒品飲活動<br>
-分享酒類文化與品飲技巧<br>
-強調互動與教育推廣</p>
+    分享酒類文化與品飲技巧<br>
+    強調互動與教育推廣</p>
     <div class="card-buttons">
       <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
     </div>
+  </div>
 
   <!-- 介紹4 -->
-     <div class="section-item">
+  <div class="section-item">
     <h2>社會經歷</h2>
     <p>奉獻共創美好社會<br>
-國際青年商會十大傑出青年選拔第？屆副總幹事<br>
-員林國際青年商會 2010會長<br>
-員林錦龍獅子會 現任理監事<br>
-全仁慈善會 現任會員</p>
+    國際青年商會十大傑出青年選拔 副總幹事<br>
+    員林國際青年商會 2010會長<br>
+    員林錦龍獅子會 現任理監事<br>
+    全仁慈善會 現任會員</p>
     <div class="card-buttons">
       <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
     </div>
