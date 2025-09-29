@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>電子名片滑動</title>
+<title>電子名片＿陳椿茂</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -67,8 +67,9 @@
   flex-shrink: 0; /* 不被壓縮 */
 }
 .qrcode {
-  width: 100px;
+  max-width: 100%;
   height: auto;
+  object-fit: contain; /* 保持完整比例 */
 }
 
   .section-item h2 {
@@ -117,7 +118,7 @@
     <img src="1.jpg" alt="名片照片">
    
     <h2>博酒萊洋酒</h2>
-    <p>陳椿茂 Tam Chen 總經理<br>📞 0986-185599<br>🏠 彰化縣員林市浮圳路二段25號 <br> 服務0距離 全台服務</p>
+    <p>陳椿茂 總經理<br>📞 0986-185599<br>🏠 彰化縣員林市浮圳路二段25號 <br> 服務0距離 全台服務</p>
     <div class="card-buttons">
       <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
       <a class="btn-direct" href="line://msg/text/這是我的電子名片%0A加我好友👉 https://line.me/ti/p/~heysong0301" target="_blank">分享好友</a>
