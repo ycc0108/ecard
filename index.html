@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>電子名片滑動</title>
+<title>電子名片＿陳椿茂</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -60,21 +61,21 @@
     border-top-right-radius: 12px;
   }
 
-.qrcode {
-  width: 50%;        /* 螢幕寬度的 50% */
-  max-width: 120px;  /* 最大寬度 */
-  height: auto;      /* 高度自動維持比例 */
-  object-fit: contain; /* 保持完整圖片，不被裁切 */
-}
+  .qrcode {
+    width: 50%;        /* 螢幕寬度的 50% */
+    max-width: 120px;  /* 最大寬度 */
+    height: auto;      /* 高度自動維持比例 */
+    object-fit: contain; /* 保持完整圖片，不被裁切 */
+  }
 
-.qrcode-container {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  flex-shrink: 0;       /* 不被壓縮 */
-  overflow: visible;    /* 避免被裁切 */
-}
-
+  .qrcode-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    flex-shrink: 0;       /* 不被壓縮 */
+    overflow: visible;    /* 避免被裁切 */
+    width: 100%;          /* 讓 QRcode 占滿容器寬度 */
+  }
 
   .section-item h2 {
     font-size: 16px;
@@ -109,13 +110,12 @@
   .btn-direct { background: #ff9500; }
   .btn-share { background: #007bff; }
 
-@media screen and (max-width: 768px) {
-  .qrcode {
-    width: 70%;   /* 手機版較大比例 */
-    max-width: 100px;
+  @media screen and (max-width: 768px) {
+    .qrcode {
+      width: 70%;   /* 手機版較大比例 */
+      max-width: 100px;
+    }
   }
-}
-
 </style>
 </head>
 <body>
@@ -124,17 +124,18 @@
   <!-- 名片介紹 -->
   <div class="section-item">
     <img src="1.jpg" alt="名片照片">
-   
     <h2>博酒萊洋酒</h2>
     <p>陳椿茂 總經理<br>📞 0986-185599<br>🏠 彰化縣員林市浮圳路二段25號 <br> 服務0距離 全台服務</p>
+    
     <div class="card-buttons">
       <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
       <a class="btn-direct" href="line://msg/text/這是我的電子名片%0A加我好友👉 https://line.me/ti/p/~heysong0301" target="_blank">分享好友</a>
       <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
-<div class="qrcode-container">
-  <img class="qrcode" src="5.png" alt="qrcode照片">
-</div>
+    </div>
 
+    <!-- QRcode 獨立出來 -->
+    <div class="qrcode-container">
+      <img class="qrcode" src="5.png" alt="qrcode照片">
     </div>
   </div>
 
@@ -153,7 +154,7 @@
     <img src="3.png" alt="產品一圖片">
     <h2>年節送禮＆婚宴用酒</h2>
     <p>春酒尾牙、婚禮喜宴、社團聚會用酒，專業服務配送到府。<br>
-  年節慶祝、升官入厝祝賀，多樣化禮盒提供您選擇。提供多樣化選擇。<br>配合上市櫃公司 中小型企業客製化送禮需求。</p>
+    年節慶祝、升官入厝祝賀，多樣化禮盒提供您選擇。提供多樣化選擇。<br>配合上市櫃公司 中小型企業客製化送禮需求。</p>
     <div class="card-buttons">
       <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
     </div>
@@ -191,3 +192,4 @@
 
 </body>
 </html>
+```
