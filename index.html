@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>電子名片＿陳椿茂</title>
+<title>電子名片滑動</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -60,17 +60,21 @@
     border-top-right-radius: 12px;
   }
 
+.qrcode {
+  width: 50%;        /* 螢幕寬度的 50% */
+  max-width: 120px;  /* 最大寬度 */
+  height: auto;      /* 高度自動維持比例 */
+  object-fit: contain; /* 保持完整圖片，不被裁切 */
+}
+
 .qrcode-container {
   display: flex;
   justify-content: center;
   padding: 10px 0;
-  flex-shrink: 0; /* 不被壓縮 */
+  flex-shrink: 0;       /* 不被壓縮 */
+  overflow: visible;    /* 避免被裁切 */
 }
-.qrcode {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain; /* 保持完整比例 */
-}
+
 
   .section-item h2 {
     font-size: 16px;
@@ -105,9 +109,13 @@
   .btn-direct { background: #ff9500; }
   .btn-share { background: #007bff; }
 
-  @media screen and (max-width: 768px) {
-    .section-item { flex: 0 0 220px; }
+@media screen and (max-width: 768px) {
+  .qrcode {
+    width: 70%;   /* 手機版較大比例 */
+    max-width: 100px;
   }
+}
+
 </style>
 </head>
 <body>
