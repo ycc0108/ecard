@@ -1,27 +1,276 @@
-<!-- 介紹5 -->
-<div class="section-item">
-  <img src="17.png" alt="活動一圖片">
-  <h2>社會經歷</h2>
-  <p>奉獻共創美好社會<br>
-  國際青年商會十大傑出青年選拔 副總幹事<br>
-  員林國際青年商會 2010會長&現任會員<br>
-  員林錦龍獅子會 現任理監事<br>
-  全仁慈善會 現任會員</p>
-  <div class="card-buttons">
-    <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
-    <a class="btn-direct" href="line://msg/text/這是陳椿茂的電子名片👉 https://ycc0108.github.io/ecard/" target="_blank">分享好友</a>
-    <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
-  </div>
-</div>  <!-- ← 少了這行，補上！ -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- 介紹6 -->
-<div class="section-item">
-  <img src="20.jpg" alt="活動一圖片">
-  <h2>品牌活動紀錄</h2>
-  <p>各類品牌推廣與活動剪影</p>
-  <div class="card-buttons">
-    <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
-    <a class="btn-direct" href="line://msg/text/這是陳椿茂的電子名片👉 https://ycc0108.github.io/ecard/" target="_blank">分享好友</a>
-    <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+  <title>陳椿茂 電子名片</title>
+
+<!-- ✅ 正確的 Open Graph 設定 -->
+<meta property="og:title" content="陳椿茂 電子名片" />
+<meta property="og:description" content="這是陳椿茂的電子名片，歡迎加 LINE 或聯絡！" />
+<meta property="og:image" content="https://ycc0108.github.io/ecard/18.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://ycc0108.github.io/ecard/" />
+<meta property="og:type" content="website" />
+
+<!-- ✅ Twitter 預覽 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="陳椿茂 電子名片">
+<meta name="twitter:description" content="這是陳椿茂的電子名片，歡迎加 LINE 或聯絡！">
+<meta name="twitter:image" content="https://ycc0108.github.io/ecard/18.png">
+</head>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .section {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+    }
+
+    .section::-webkit-scrollbar {
+      height: 8px;
+    }
+    .section::-webkit-scrollbar-track {
+      background: #f0f0f0;
+      border-radius: 4px;
+    }
+    .section::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+    .section::-webkit-scrollbar-thumb:hover {
+      background: #999;
+    }
+
+    .section-item {
+      flex: 0 0 280px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      scroll-snap-align: start;
+      padding-bottom: 10px;
+    }
+
+    .section-item img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      background: #fff;
+    }
+
+    .section-item img + img {
+      margin-top: 6px;
+    }
+
+    .section-item img.profile-pic {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 0;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .qrcode {
+      width: auto;
+      max-width: 80%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    .section-item h2 {
+      font-size: 16px;
+      margin: 8px 0 4px;
+    }
+
+    .section-item p {
+      font-size: 13px;
+      color: #444;
+      padding: 0 8px 8px;
+      margin: 0;
+    }
+
+    .card-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .card-buttons a {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .btn-line { background: #06C755; }
+    .btn-direct { background: #ff9500; }
+    .btn-share { background: #007bff; }
+
+    @media screen and (max-width: 768px) {
+      .qrcode {
+        max-width: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section">
+
+    <!-- 名片介紹 -->
+    <div class="section-item">
+      <img src="15.png" alt="名片照片" class="profile-pic">
+      <h2>陳椿茂</h2>
+      <h2>Tam Chen</h2>
+      <p>博酒萊洋酒 酒類專賣店 總經理<br>黑松飲料經銷商 經理<br>奧瑞岡辯論訓練講師＆評審<br>酒類顧問＆品酒會講師<br>社團訓練講師</p>
+      <p>📞 09-86185599<br>✉️ heysong0301@gmail.com<br>Line: heysong0301</p>
+
+      <div class="card-buttons">
+        <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
+        <a class="btn-direct" href="line://msg/text/這是陳椿茂的電子名片👉 https://ycc0108.github.io/ecard/" target="_blank">分享好友</a>
+        <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+      </div>
+
+      <div class="qrcode-container">
+        <img class="qrcode" src="5.png" alt="qrcode照片">
+      </div>
+    </div>
+
+    <!-- 介紹1 -->
+    <div class="section-item">
+      <img src="2.png" alt="服務一圖片">
+      <img src="3.png" alt="服務一圖片">
+      <h2>博酒萊洋酒 總經理</h2>
+      <p>酒類專賣店 <br>🏠 彰化縣員林市浮圳路二段25號 <br> 服務0距離 全台服務</p>
+      <p>專售世界各級威士忌、葡萄酒＆級數酒、香檳＆氣泡酒、日本清酒、高粱酒、進口啤酒等酒類，無酒精啤酒葡萄酒＆軟性飲料，另售雪茄、香菸。</p>
+      <div class="card-buttons">
+        <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
+<a class="btn-direct" href="line://msg/text/這是陳椿茂的電子名片👉 https://ycc0108.github.io/ecard/" target="_blank">分享好友</a>
+        <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+      </div>
+    </div>
+
+    <!-- 介紹2 -->
+    <div class="section-item">
+      <img src="9.JPG" alt="產品一圖片">
+      <img src="8.jpg" alt="產品一圖片">
+      <h2>奧瑞岡辯論 評審 & 訓練講師</h2>
+      <p>擔任比賽評審<br>培養青年思辨與表達能力<br>促進跨文化交流</p>
+      <div class="card-buttons">
+        <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
+      <a class="btn-direct" href="line://msg/text/這是陳椿茂的電子名片👉 https://ycc0108.github.io/ecard/" target="_blank">分享好友</a>
+        <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+      </div>
+    </div>
+
+    <!-- 介紹3 -->
+    <div class="section-item">
+      <img src="12.png" alt="活動一圖片">
+      <h2>酒類顧問及品酒會講師</h2>
+      <p>傳遞品酒文化推廣者<br>
+      主持威士忌、葡萄酒、烈酒品飲活動<br>
+      分享酒類文化與品飲技巧<br>
+      交流互動與教育推廣</p>
+      <div class="card-buttons">
+        <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
+        <a class="btn-direct" href="line://msg/text/這是陳椿茂的電子名片👉 https://ycc0108.github.io/ecard/" target="_blank">分享好友</a>
+        <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+      </div>
+    </div>
+    
+    <!-- 介紹4 -->
+    <div class="section-item">
+      <img src="16.png" alt="活動一圖片">
+      <h2>客製化品酒會</h2>
+      <p>傳遞品酒文化推廣者<br>
+      舉辦威士忌、葡萄酒、烈酒等品酩活動<br>
+      分享酒類文化與品飲技巧<br>
+      博酒萊洋酒門市定期舉辦品酒會，歡迎報名參加<br>
+      或客製化專屬品酒會，歡迎合作邀約</p>
+      <div class="card-buttons">
+        <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
+      <a class="btn-direct" href="line://msg/text/這是陳椿茂的電子名片👉 https://ycc0108.github.io/ecard/" target="_blank">分享好友</a>
+        <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+      </div>
+    </div>  
+    
+    <!-- 介紹5 -->
+    <div class="section-item">
+      <img src="17.png" alt="活動一圖片">
+      <h2>社會經歷</h2>
+      <p>奉獻共創美好社會<br>
+      國際青年商會十大傑出青年選拔 副總幹事<br>
+      員林國際青年商會 2010會長&現任會員<br>
+      員林錦龍獅子會 現任理監事<br>
+      全仁慈善會 現任會員</p>
+      <div class="card-buttons">
+        <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
+ <a class="btn-direct" href="line://msg/text/這是陳椿茂的電子名片👉 https://ycc0108.github.io/ecard/" target="_blank">分享好友</a>
+        <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+      </div>
+    </div>
+      
+       <!-- 介紹6 -->
+    <div class="section-item">
+      <img src="20.jpg" alt="活動一圖片">
+      <div class="card-buttons">
+        <a class="btn-share" href="#" id="btn-line-share">分享連結</a>
+ <a class="btn-direct" href="line://msg/text/這是陳椿茂的電子名片👉 https://ycc0108.github.io/ecard/" target="_blank">分享好友</a>
+        <a class="btn-line" href="https://line.me/ti/p/~heysong0301" target="_blank">加好友</a>
+      </div>
+    </div>    </div>
   </div>
-</div>
+
+  <script>
+    // LINE 分享按鈕功能
+    document.querySelectorAll('#btn-line-share').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const pageUrl = window.location.href;
+        const title = document.title || '電子名片';
+        const text = `${title}：${pageUrl}`;
+        
+        if (navigator.share) {
+          navigator.share({ title, text, url: pageUrl })
+            .catch(() => openLineFallback(text, pageUrl));
+        } else {
+          openLineFallback(text, pageUrl);
+        }
+
+        function openLineFallback(message, url) {
+          const shareUrl = 'https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url);
+          window.open(shareUrl, '_blank');
+        }
+      });
+    });
+  </script>
+</body>
+</html> 
